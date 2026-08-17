@@ -9,7 +9,8 @@
         "nativeCurrency": {
             "name": "YNXT",
             "symbol": "YNXT",
-            "decimals": 18
+            "decimals": 18,
+            "logo": "https://raw.githubusercontent.com/JiahaoAlbus/YNX-Chain-website/main/public/ynx-logo.png"
         },
         "rpc": [
             "https://evm.ynxweb4.com"
@@ -24,7 +25,8 @@
                 "url": "https://explorer.ynxweb4.com",
                 "standard": "EIP3091"
             }
-        ]
+        ],
+        "icon": "ynx"
     },
     {
         "name": "Ethereum Mainnet",
@@ -63504,64 +63506,62 @@
         "nativeCurrency": {
             "name": "MCN",
             "symbol": "MCN",
-                "decimals": 18
-    },
-    "rpc": [
-        "https://rpc1.mcnsmartchain.com",
-        "https://rpc2.mcnsmartchain.com",
-        "https://rpc3.mcnsmartchain.com"
-    ],
-    "faucets": [],
-    "infoURL": "https://www.mcnsmartchain.com",
-    "explorers": [
-        {
-            "name": "MCN Scan",
-            "url": "https://block.mcnsmartchain.com",
-            "standard": "EIP3091"
+            "decimals": 18
+        },
+        "rpc": [
+            "https://rpc1.mcnsmartchain.com",
+            "https://rpc2.mcnsmartchain.com",
+            "https://rpc3.mcnsmartchain.com"
+        ],
+        "faucets": [],
+        "infoURL": "https://www.mcnsmartchain.com",
+        "explorers": [
+            {
+                "name": "MCN Scan",
+                "url": "https://block.mcnsmartchain.com",
+                "standard": "EIP3091"
+            }
+        ],
+        "app_resource": {
+            "ic_chain_select": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg",
+            "ic_chain_unselect": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg",
+            "ic_chain_unselect_dark": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg",
+            "color_chain_bg": "0x99FF00",
+            "color_chain_text": "0x000000",
+            "ic_home_logo": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg"
         }
-    ],
-    "app_resource": {
-        "ic_chain_select": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg",
-        "ic_chain_unselect": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg",
-        "ic_chain_unselect_dark": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg",
-        "color_chain_bg": "0x99FF00",
-        "color_chain_text": "0x000000",
-        "ic_home_logo": "https://photos.pinksale.finance/file/pinksale-logo-upload/1768216345304-4f17a2cc73fa22989e27cd2b22ec94bd.jpg"
-    }
-},
+    },
     {
-  "name": "AOU Chain",
-  "chainId": 2236,
-  "shortName": "aou",
-  "chain": "AOU",
-  "network": "testnet",
-  "networkId": 2236,
-  "nativeCurrency": {
-    "name": "AOU",
-    "symbol": "AOU",
-    "decimals": 18
-  },
-  "rpc": [
-    "https://testnet-rpc.aouscan.com"
-  ],
-  "faucets": [],
-  "infoURL": "https://www.aoulink.io",
-  "explorers": [
-    {
-      "name": "AOU Scan Testnet",
-      "url": "https://testnet.aouscan.com",
-      "standard": "EIP3091"
+        "name": "AOU Chain",
+        "chainId": 2236,
+        "shortName": "aou",
+        "chain": "AOU",
+        "network": "testnet",
+        "networkId": 2236,
+        "nativeCurrency": {
+            "name": "AOU",
+            "symbol": "AOU",
+            "decimals": 18
+        },
+        "rpc": [
+            "https://testnet-rpc.aouscan.com"
+        ],
+        "faucets": [],
+        "infoURL": "https://www.aoulink.io",
+        "explorers": [
+            {
+                "name": "AOU Scan Testnet",
+                "url": "https://testnet.aouscan.com",
+                "standard": "EIP3091"
+            }
+        ],
+        "app_resource": {
+            "ic_chain_select": "https://www.aoulink.io/aou.png",
+            "ic_chain_unselect": "https://www.aoulink.io/aou.png",
+            "ic_chain_unselect_dark": "https://www.aoulink.io/aou.png",
+            "color_chain_bg": "0x000000",
+            "color_chain_text": "0xFFFFFF",
+            "ic_home_logo": "https://www.aoulink.io/aou.png"
+        }
     }
-  ],
-  "app_resource": {
-    "ic_chain_select": "https://www.aoulink.io/aou.png",
-    "ic_chain_unselect": "https://www.aoulink.io/aou.png",
-    "ic_chain_unselect_dark": "https://www.aoulink.io/aou.png",
-    "color_chain_bg": "0x000000",
-    "color_chain_text": "0xFFFFFF",
-    "ic_home_logo": "https://www.aoulink.io/aou.png"
-  }
-}
-
 ]
-
