@@ -1,0 +1,43 @@
+name: Add YNX icon
+
+on:
+  push:
+    branches:
+      - add-ynx-testnet-6423
+
+permissions:
+  contents: write
+
+jobs:
+  icon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: add-ynx-testnet-6423
+      - name: Copy official YNX icon
+        run: |
+          mkdir -p public/chains
+          curl -L --fail --retry 3 -o public/chains/ynx.png https://raw.githubusercontent.com/JiahaoAlbus/YNX-Chain-website/main/public/ynx-logo.png
+      - name: Update YNX icon references
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('chains.json')
+          d=json.loads(p.read_text())
+          for c in d:
+              if c.get('chainId')==6423:
+                  c['icon']='ynx'
+                  c['nativeCurrency']['logo']='https://raw.githubusercontent.com/JiahaoAlbus/YNX-Chain-website/main/public/ynx-logo.png'
+                  break
+          p.write_text(json.dumps(d, indent=4, ensure_ascii=False)+'\n')
+          PY
+      - name: Remove temporary workflow and commit
+        run: |
+          rm .github/workflows/ynx-icon.yml
+          git config user.name "JiahaoAlbus"
+          git config user.email "159010359+JiahaoAlbus@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "feat: add YNX chain icon"
+          git push origin HEAD:add-ynx-testnet-6423
