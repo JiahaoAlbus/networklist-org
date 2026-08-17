@@ -1,0 +1,71 @@
+name: Add YNX Testnet registry entry
+
+on:
+  push:
+    branches:
+      - add-ynx-testnet-6423
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: add-ynx-testnet-6423
+      - name: Add YNX Testnet to TokenPocket network list
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p = Path('chains.json')
+          b = p.read_bytes()
+          if b'"chainId": 6423' not in b:
+              nl = b'\r\n' if b.startswith(b'[\r\n') else b'\n'
+              entry_lines = [
+                  b'    {',
+                  b'        "name": "YNX Testnet",',
+                  b'        "chainId": 6423,',
+                  b'        "shortName": "ynxtest",',
+                  b'        "chain": "YNX",',
+                  b'        "network": "testnet",',
+                  b'        "networkId": 6423,',
+                  b'        "nativeCurrency": {',
+                  b'            "name": "YNXT",',
+                  b'            "symbol": "YNXT",',
+                  b'            "decimals": 18',
+                  b'        },',
+                  b'        "rpc": [',
+                  b'            "https://evm.ynxweb4.com"',
+                  b'        ],',
+                  b'        "faucets": [',
+                  b'            "https://www.ynxweb4.com/dapp/faucet"',
+                  b'        ],',
+                  b'        "infoURL": "https://ynxweb4.com",',
+                  b'        "explorers": [',
+                  b'            {',
+                  b'                "name": "YNX Explorer",',
+                  b'                "url": "https://explorer.ynxweb4.com",',
+                  b'                "standard": "EIP3091"',
+                  b'            }',
+                  b'        ]',
+                  b'    },',
+              ]
+              entry = nl.join(entry_lines) + nl
+              anchor = b'[' + nl
+              if not b.startswith(anchor):
+                  raise SystemExit('unexpected chains.json format')
+              b = anchor + entry + b[len(anchor):]
+              p.write_bytes(b)
+          json.loads(p.read_text())
+          PY
+      - name: Remove temporary workflow and commit
+        run: |
+          rm .github/workflows/ynx-patch.yml
+          git config user.name "JiahaoAlbus"
+          git config user.email "159010359+JiahaoAlbus@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "feat: add YNX Testnet (6423)"
+          git push origin HEAD:add-ynx-testnet-6423
